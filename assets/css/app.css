@@ -100,25 +100,7 @@ a {
 }
 
 
-.logo-text {
-
-
-	font-size: 22px;
-
-
-	margin-left: 10px;
-
-
-	margin-bottom: 0;
-
-
-	letter-spacing: 1px;
-
-
-	color: #0d6efd;
-
-
-}
+.logo-text {font-size: 24px;margin-left: 10px;margin-bottom: 0;letter-spacing: 1px;color: #1353b4;font-weight: 600;}
 
 
 .toggle-icon {
