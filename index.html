@@ -1,0 +1,806 @@
+
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><meta charset="utf-8" /><meta http-equiv="x-ua-compatible" content="ie=edge" /><title>
+	*** SSPL Inventory ***
+</title><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="login-assets/favicon.png" />
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <!-- Google Font: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+    <!-- Custom CSS -->
+
+    <style>
+        * {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1249a0 0%, #053251 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            position: relative;
+            overflow-x: hidden;
+        } */
+        body {
+            min-height: 100vh;
+            /* background: url(bg.jpg); */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            position: relative;
+            overflow-x: hidden;
+            /* background-size: cover; */
+        }
+
+        .split-card {
+            border-radius: 3rem;
+            background: white;
+            box-shadow: 0 30px 60px rgba(0, 20, 10, 0.15);
+            overflow: hidden;
+            border: none;
+            z-index: 1;
+            position: relative;
+        }
+
+        /* floating animated shapes (background interest) */
+        .shape {
+            position: fixed;
+            background: rgba(255, 245, 225, 0.05);
+            border-radius: 50%;
+            backdrop-filter: blur(4px);
+            border: 2px solid rgba(255, 215, 170, 0.2);
+            animation: float 20s infinite ease-in-out;
+            z-index: 0;
+        }
+
+        .login:before {
+            content: "";
+            width: 100%;
+            height: 91px;
+            position: absolute;
+            top: -12px;
+            right: 0;
+            background: url(login-assets/img-6.png) top left repeat;
+            /*background: url(https://moralwinner.com/newdesign/assets/img/img-6.png) top left repeat;*/
+            background-size: cover;
+            /* z-index: 1; */
+            border-radius: 30px 30px 0 0;
+        }
+
+        .shape1 {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            left: -100px;
+            animation-delay: -2s;
+        }
+
+        .shape2 {
+            width: 400px;
+            height: 400px;
+            bottom: -150px;
+            right: -150px;
+            animation-duration: 25s;
+            animation-delay: -5s;
+        }
+
+        .shape3 {
+            width: 200px;
+            height: 200px;
+            top: 40%;
+            left: 70%;
+            animation-duration: 18s;
+            background: rgba(240, 210, 170, 0.03);
+        }
+
+        .swiper-slide img {
+            border-radius: 15px;
+        }
+
+        @keyframes float {
+
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            25% {
+                transform: translate(40px, -30px) scale(1.05);
+            }
+
+            50% {
+                transform: translate(-20px, 40px) scale(0.98);
+            }
+
+            75% {
+                transform: translate(30px, 20px) scale(1.02);
+            }
+        }
+
+        /* left column — image slider */
+        .slider-col {
+            /* background: #1e2f2b; */
+            min-height: 550px;
+            position: relative;
+            border-radius: 2rem 0 0 2rem;
+            padding: 0;
+        }
+
+        .carousel,
+        .carousel-inner,
+        .carousel-item {
+            height: 100%;
+            width: 100%;
+            border-radius: inherit;
+        }
+
+        .carousel-item {
+            background-size: cover;
+            background-position: center;
+        }
+
+            .carousel-item::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(145deg, rgb(0 21 40 / 50%) 0%, rgba(0, 20, 10, 0.7) 100%);
+                z-index: 1;
+            }
+
+        .carousel-caption-custom {
+            /* position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 3;
+            color: white; */
+            text-align: center;
+            padding: 20px;
+            /* width: 100%;
+            height: 100%; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .carousel-caption-custom h3 {
+                font-weight: 600;
+                font-size: 2.2rem;
+                /* text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); */
+                letter-spacing: -0.5px;
+                color: #1353b4;
+            }
+
+            .carousel-caption-custom p {
+                font-size: 1.1rem;
+                opacity: 0.9;
+                /* text-shadow: 0 2px 6px black; */
+                color: #2e599d;
+            }
+
+        .carousel-indicators {
+            z-index: 4;
+        }
+
+            .carousel-indicators [data-bs-target] {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.5);
+                border: none;
+                margin: 0 6px;
+            }
+
+            .carousel-indicators .active {
+                background-color: #ffb77c;
+                transform: scale(1.2);
+            }
+
+        /* right column form */
+        .form-col {
+            padding: 1.8rem 2.5rem;
+            background: white;
+            border-radius: 0 2rem 2rem 0;
+        }
+
+        .form-label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #2d4d40;
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.2px;
+        }
+
+        .input-glass {
+            border: 1.5px solid #e3e9e6;
+            border-radius: 60px;
+            padding: 0.75rem 1.5rem;
+            background: #fafcfb;
+            transition: 0.2s;
+        }
+
+            .input-glass:focus {
+                border-color: #3582b9;
+                box-shadow: 0 0 0 5px rgb(130 154 176 / 20%);
+                background: white;
+            }
+
+        .btn-sign, .btn-sign:focus {
+            background: #094cc1;
+            border: none;
+            border-radius: 60px;
+            padding: 0.85rem 1.8rem;
+            font-weight: 700;
+            color: white;
+            transition: 0.15s;
+            box-shadow: 0 10px 20px -7px #1f4c3f;
+        }
+
+            .btn-sign:hover {
+                background: #194587;
+                transform: translateY(-2px);
+                box-shadow: 0 18px 25px -8px #215278;
+                color: white;
+            }
+
+        .btn-reset {
+            background: transparent;
+            border: 2px solid #becac2;
+            border-radius: 60px;
+            padding: 0.8rem 1.8rem;
+            font-weight: 600;
+            color: #3a5b4e;
+            transition: 0.15s;
+        }
+
+            .btn-reset:hover {
+                border-color: #12548e;
+                background: #e8f6ff;
+            }
+
+        .captcha-box {
+            background: #edf3ef;
+            border-radius: 60px;
+            /* padding: 0.7rem 1.8rem; */
+            font-family: 'Courier New', monospace;
+            font-weight: 800;
+            font-size: 1.7rem;
+            letter-spacing: 6px;
+            border: 2px dashed #aec7df;
+            color: #1d4d3b;
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        .forget-link {
+            color: #25679c;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px dashed #7badd0;
+        }
+
+            .forget-link:hover {
+                color: #1f4c3f;
+                border-bottom-style: solid;
+            }
+
+        .brand-head {
+            font-weight: 700;
+            color: #1353b4;
+            font-size: 2rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+        }
+
+        hr {
+            opacity: 0.3;
+        }
+
+        @media (max-width: 767px) {
+            .form-col {
+                padding: 1.8rem 1.5rem;
+            }
+
+            body {
+                display: block;
+            }
+
+            .brand-head {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .login-container {
+                max-width: 1080px;
+            }
+        }
+
+        .swiper {
+            width: 100%;
+            /* padding-top: 50px; */
+            padding-bottom: 50px;
+        }
+
+        .swiper-pagination-bullet {
+            background: #696969;
+            transition: all 0.5s ease 0s;
+            border-radius: 8px;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #1353b4;
+            width: 30px;
+        }
+
+        .bg-video {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.5) blur(1px);
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    </style>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Custom scripts -->
+    <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+      <script language="javascript" type="text/javascript">
+          var message = "Sorry! Right click is not allowed";
+          function clickIE4() { if (event.button == 2) { alert(message); return false; } }
+          function clickNS4(e) {
+              if (document.layers || document.getElementById && !document.all) {
+                  if (e.which == 2 || e.which == 3) { alert(message); return false; }
+              }
+          }
+          if (document.layers) { document.captureEvents(Event.MOUSEDOWN); document.onmousedown = clickNS4; }
+          else if (document.all && !document.getElementById) { document.onmousedown = clickIE4; }
+          document.oncontextmenu = new Function("alert(message);return false")
+    </script>
+    <script language="javascript" type="text/javascript" src="Script/MD5New.js"></script>
+    <script language="JavaScript" type="text/javascript">
+        javascript: window.history.forward(1);
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+</head>
+<body>
+    <form method="post" action="./ServiceLogin.aspx" onsubmit="javascript:return WebForm_OnSubmit();" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'btn_SignIn')" id="Form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJODY2OTM1Njg3D2QWAgIDD2QWBAIDDw8WAh4EVGV4dAXtBuCknOCkryDgpK7gpYvgpLDgpLIgIQ0KIA0KDQrgpIbgpKog4KS44KSt4KWAIOCkleCliyDgpLjgpYLgpJrgpL/gpKQg4KSV4KS/4KSv4KS+IOCknOCkvuCkpOCkviDgpLngpYgg4KSV4KS/IOCkhuCkquCkleCliyBJbnZlbnRvcnkg4KSU4KSwIFNoaW5lLCDgpKbgpYvgpKjgpYvgpIIg4KS44KWJ4KSr4KWN4KSf4KS14KWH4KSv4KSwIOCkj+CkleCljeCkuOClh+CkuCDgpJXgpLDgpKjgpYcg4KSV4KWHIOCksuCkv+CkjyDgpKbgpYsg4KSy4KS/4KSC4KSVIOCkpuCkv+CkjyDgpJfgpI8g4KS54KWILCDgpJzgpL/gpLjgpJXgpYcg4KSu4KS+4KSn4KWN4KSv4KSuIOCkuOClhyDgpIbgpKogSW52ZW50b3J5IOCklOCksCBTaGluZSDgpKbgpYvgpKjgpYvgpIIg4KS44KWJ4KSr4KWN4KSf4KS14KWH4KSv4KSwIOCkluCli+CksiDgpLjgpJXgpKTgpYcg4KS54KWI4KSCIHwg4KSF4KSX4KSwIOCkhuCkqiDgpJXgpL4g4KSH4KSo4KWN4KS14KWH4KSC4KSf4KSw4KWAIOCkuOClieCkq+CljeCkn+CkteClh+Ckr+CksCDgpKfgpYDgpLDgpYcg4KSa4KSyIOCksOCkueCkviDgpLngpYgg4KSv4KS+IOCkqOCkueClgOCkgiDgpJbgpYHgpLIg4KSw4KS54KS+IOCkueCliCDgpKTgpYsg4KSG4KSqIOCkqOClgOCkmuClhyDgpKbgpL/gpI8g4KSX4KSPIOCksuCkv+CkguCklSDgpJXgpYsg4KSs4KSm4KSyIOCkleClhyDgpK3gpYAg4KSq4KWN4KSw4KSv4KWL4KSXIOCkleCksCDgpLjgpJXgpKTgpYcg4KS54KWI4KSCIHwgDQoNCmh0dHA6Ly8yNy4yNTEuMTk1LjE2Mi9heGlsaW52ZW50b3J5LCANCmh0dHA6Ly8xMDMuMjguMTU3LjIyOC9heGlsaW52ZW50b3J5LCANCmh0dHA6Ly8yNy4yNTEuMTk1LjE2Mi9zaGluZSwgDQpodHRwOi8vMTAzLjI4LjE1Ny4yMjgvc2hpbmVkZAIYD2QWAgIBDxAPFgYeDURhdGFUZXh0RmllbGQFDUZpbmFuY2lhbFllYXIeDkRhdGFWYWx1ZUZpZWxkBQ1GaW5hbmNpYWxZZWFyHgtfIURhdGFCb3VuZGdkEBUMCTIwMjUtMjAyNgkyMDI0LTIwMjUJMjAyMy0yMDI0CTIwMjItMjAyMwkyMDIxLTIwMjIJMjAyMC0yMDIxCTIwMTktMjAyMAkyMDE4LTIwMTkJMjAxNy0yMDE4CTIwMTYtMjAxNwkyMDE1LTIwMTYJMjAxNC0yMDE1FQwJMjAyNS0yMDI2CTIwMjQtMjAyNQkyMDIzLTIwMjQJMjAyMi0yMDIzCTIwMjEtMjAyMgkyMDIwLTIwMjEJMjAxOS0yMDIwCTIwMTgtMjAxOQkyMDE3LTIwMTgJMjAxNi0yMDE3CTIwMTUtMjAxNgkyMDE0LTIwMTUUKwMMZ2dnZ2dnZ2dnZ2dnFgFmZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAQUVSW1nQnRuUmVmcmVzaENoYXB0aGNhy/YsKhT68DlNOARPE8rYlJgX214jcNPKi23/3noR0WM=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['Form1'];
+if (!theForm) {
+    theForm = document.Form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WTSInventory/WebResource.axd?d=piAejcHdjLfwxJ-rfSo3nEzqO12GICpPM805HfNL0CnsFTlAWOaZc9FWip0pqq8hoze128wOEhcwG6TwIvjgiEyhSEbVFo1RMrXOg3eK5iE1&amp;t=638914563140000000" type="text/javascript"></script>
+
+
+<script src="/WTSInventory/ScriptResource.axd?d=I7uL5NjOg375CBTEepg9fvmaQqWOHUjvl4bCG3MJJ-IBB0JK8Zhq9h3B4Idqf4sMpK7enmOstn5lqjzHMnZfYxEemTahTPqrvriptlY7vclGgSiFRUu_Gv64ADinKV_EIqchqrPV93Dld082aVd4VxjJVFF3tU6lGdkgrwjuh1U1&amp;t=fffffffffd875b97" type="text/javascript"></script>
+<script src="/WTSInventory/ScriptResource.axd?d=KS7rcR6cFrAcwb59rREZpFr2GUiswJhvVfORbzWEg-17DVh9gGpkck42sUKCKFWSR4NjPfqc8OqgY28XPR9F-OPY3clRKNSeQITzPHbOvu1Bwf7bSVuMbNvthyVJInKJG1hS8THjBZdZHvCk5TNbuA2&amp;t=7c776dc1" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="/WTSInventory/ScriptResource.axd?d=lkLGTh0uIWux4usFgnvl6QtgReW-vGvYAdr55HfZG3L9EJe7eglgP_JehGrYG99lPkTVUnATxNmgeyQ2nXTmT_DjENBnRAwScxvWev1R_z9Gwf1_1pZQ3wJVYGROxKIpMJ-IWgEpQdaCD3hHMTiEVA2&amp;t=7c776dc1" type="text/javascript"></script>
+<script src="/WTSInventory/ScriptResource.axd?d=Xs2-2BOwlRsm7F5I9ma1Pa9tR5tAamv8zKQr2W7HWRg63Li3mh9z4FmdpZAe68S0vymE8auWNtVMlIagsi6m0InlIOB-ZysdSrgS37G98FJFKU5yPNG2qcNmZMOmkxmZZSXwM6f-h6uuSH5jFkGxYg2&amp;t=7c776dc1" type="text/javascript"></script>
+<script src="/WTSInventory/ScriptResource.axd?d=L9hRL6sQKv2o5TzGxwnwSPzPJ-xO-5PRo78gd-DhdRH4s_4KBk3-TzzdShEW_tjfhdeZvS7k04mFZf2U45-9cZlmZtu7-8xkch_cQopOTEAXJ7xmHGzS_bvjGHx4fCcgmbO4802Yk_QlmkSdNA650g2&amp;t=7c776dc1" type="text/javascript"></script>
+<script src="/WTSInventory/ScriptResource.axd?d=nC1TUKd0d8nDumv0tiCV1x5wN-viPdyamibBcuX5AZXvWs18ZctOuOAf1b_N58c5XXCEaYK7hnilOMFWN72QAnvUHM913cPwhy2trErdS5fQHlcrkse8ezuybOniWkjPWAavk8pTyE-vsJOvJ0_DYQ2&amp;t=7c776dc1" type="text/javascript"></script>
+<script src="/WTSInventory/ScriptResource.axd?d=qu1MUFJFltAKlKGgxz_XGqZHewe0nZxGxdd-kmRIBrimZFmEmfe5X-QugrLyAuBH82gp4sJ20isJRIx7Z87ePurgvAKiS2amr1zhxyzKoihf4R9gtxWbosECReJCDup299lKKT-2poNge9o7nD97TQ2&amp;t=7c776dc1" type="text/javascript"></script>
+<script src="/WTSInventory/ScriptResource.axd?d=eX0GuzdwEqqnIHlYvpS4Bk5_Ev38bCi7UWjYaZcJlbDfhynoYFA-AUXY3lE4P-d0uIkhOSzA9r0RMHeLcKZ5L4Q5BhQ4wGGq_1jhvy7JfiR6bBW50KrfbvAD6CDeG2v_OEy53aelrGtZyVIkrANMwiy8OqApO9XaQlSUNuAUczE1&amp;t=7c776dc1" type="text/javascript"></script>
+<script src="/WTSInventory/ScriptResource.axd?d=rxtx0cf38Cn1JoY7vR8gayE4a8X19SNqJgnn19XchtgNKikdSRc1FTHkhidGf2RGV2yzN1qwWaVpwHjwxg_iZwLpFa3_-Y186S1w5dbOo-CyWJQ2kaEBxQBm4akN4NhdYx50YkfPwt7r7yjX9d6Q4itJI1ZZm1cKy385Fs6B0hs1&amp;t=7c776dc1" type="text/javascript"></script>
+<script src="/WTSInventory/ScriptResource.axd?d=zAJDmMySWoOy7zAU396GNTWArfnvrdG913_SqGe5pR3rk77s9bNoLfKixRKpYBf-FK-dJv2fsflLzRm4y5QySgUoON_rNBxWvVyDXnlEpIfQ9XkD30y1dF46XlFhOUKDvgw42085Iy4JayLNfaqztGS9mrR6ohS_fVY02rdF8bg1&amp;t=7c776dc1" type="text/javascript"></script>
+<script src="/WTSInventory/ScriptResource.axd?d=PS2M-V_BfeWPXPWzc4WkxMulDnd4WcR88ZM4iUN5y4nEa6_MKrhFYR7oIVLYTg84CsTRU7ATaTNhv0rX5IHFbODCWUGtrDLYG-oMqg_8DnAElT54PlVTi9ZDrHU4-fVVMvKjgo8HtmQBSu5lqmbaiPb5aGwCLRrVZVuJjXq9yiQ1&amp;t=7c776dc1" type="text/javascript"></script>
+<script src="/WTSInventory/ScriptResource.axd?d=yBuw8G6oA8i4P014PRF6ChALeSLLIptdob-PbAtXuHNSZCgqp8ysAV9gIozfZ86VfDfYDvWKNNRt7_nxJpEiJeolpnGlDLKjJbC08L8qmdJDO3xunmmcSnPdHjPp3OVfbQX_Nian1_5K6WGCbkmhPwj9MBAr2H7guoadHckd1ko1&amp;t=7c776dc1" type="text/javascript"></script>
+<script src="/WTSInventory/ScriptResource.axd?d=34cUAsUokgZgom7PzNWsJlBXzZWASfYErULAVoOXpVYjB00LbPhS_pVjLgMwwgP5rt-OxDT1GsYx9YxReB5SN6bWjdpy5lrRKOrcgcXxYrfIAiH_I44nTb4r27zxv2B-SoU1PkHLPbPyl-5-UPhvdtV-OXDpDZ4kM6otybTE8p01&amp;t=7c776dc1" type="text/javascript"></script>
+<script src="/WTSInventory/ScriptResource.axd?d=NP5NLI_mLdWtj5eEcgT4tGHneIXJZgnsB1mLh0ebIyxM6hItAp-IUxfSbh_y0efLOkTq2h9XOByaKA4u0ae3LzQWDHnSecEX4hnXos42axLktbu1lIH3GKnWV4MdbmMtMW4M_84kIJdyem5kJ1Vz7kljXrv70a5SWbXoiyqn--k1&amp;t=7c776dc1" type="text/javascript"></script>
+<script src="/WTSInventory/WebResource.axd?d=MdzA0jYQMcwVTfy6dlPmMXoKThB8rV2WE8h1eenucQI9-LSIoC4T9U50GSq2dQUt0VTa3HzfKcr_GrroN2hiSJPG2LJNPOw2gIYKru4o4w41&amp;t=638914563140000000" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="A53FFAF5" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdABDiLZcv9rvyTns5ENyjtsvXepRWkK7F0cJ07W8SmllpC0J0yJWcqvi8e69cDXV7Jit3y5wtet+nbVQn/Hmxej9W0XzMnWtdrL8G+wYpHX1i+wfyRlF5cO1SJkkPjrOyUd0OWbhWJFKPwg6Yz6/N8eZ9orisWzztD1CGMJhV3RdzA2THwN5KXpfJL2ZV1Sre2TL35POyUvG3Wagpw/O385EqM9KW7XpjHhBuINT5110rU7MQJVhkDNOfh/2PQdH2pW2Zf5MUp2golT/J9ICuDcwjDVFVg8cTjNrN+/PuDCUb0HI7ajb2ipvNiwTjCPxSFqwJlS2Y+xnf1lTpVsTt8/FJIhB64cwWJhrL3tNdHZBwYJao2Qfs/xvk/H3KFrkBDXA=" />
+</div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'Form1', ['tUpdatePanel2','UpdatePanel2'], [], [], 90, '');
+//]]>
+</script>
+
+
+        <!-- Hidden fields and panels -->
+        
+        <span id="lblNews" style="color:Red;"></span>
+
+        <!-- Background Video -->
+        <video autoplay muted loop class="bg-video" poster="login-assets/thumb.jpg">
+            <source src="login-assets/inventoryvid.mp4" type="video/mp4">
+        </video>
+
+        <!-- Floating Shapes -->
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+
+        <!-- Password Change Panel (Hidden by default) -->
+        <div style="display: none;">
+            <div id="pnl_SearchPo" class="modalPopup" style="border-color:Black;border-width:1px;border-style:solid;font-size:12px;width:400px;font-family: 'Lucida Sans Unicode'; min-height: 250px;">
+	
+                <table cellpadding="3" cellspacing="0" width="100%" style="margin-top: 30px;">
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td colspan="3" style="color: red">
+                                        <b>Please change your password to proceed.</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td align="right">Old Password :</td>
+                                    <td align="left">
+                                        <input name="txtOldPassword" type="password" id="txtOldPassword" class="form-control" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td align="right">New Password :</td>
+                                    <td align="left">
+                                        <input name="txtNewPassword" type="password" id="txtNewPassword" class="form-control" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td align="right">Confirm Password :</td>
+                                    <td align="left">
+                                        <input name="txtConfirmPass" type="password" id="txtConfirmPass" class="form-control" />
+                                        <span id="CompareValidator2" class="text-danger" style="visibility:hidden;">Password Not Match!</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center" colspan="3">
+                                        <span id="lblMsgPass" style="color:Red;font-weight:bold;"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" align="center">
+                                        <input type="submit" name="btnSubmitPass" value="Submit" id="btnSubmitPass" disabled="disabled" class="aspNetDisabled btn btn-primary" />&nbsp;
+                                        <input type="submit" name="btnCancelPass" value="Cancel" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;btnCancelPass&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="btnCancelPass" class="btn btn-secondary" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            
+</div>
+        </div>
+
+        <div class="paral d-none" style="position: relative; text-align: center; display: flex; justify-content: center;">
+            <p style="color: white; background: black; margin: 0; width: 82%; border-radius: 10px; font-size: 17px;">
+                अगर फिर भी समस्या बनी रहती है, तो यह हो सकता है कि वेबसाइट का अपना सर्वर डाउन हो, ऐसे में आपको कुछ समय इंतज़ार करना होगा।
+            </p>
+        </div>
+
+        <!-- Main Login Container -->
+        <div class="container login-container p-0">
+            <div class="row split-card g-0">
+                <!-- Left Column - Image Slider -->
+                <div class="col-md-6 slider-col d-none d-md-block position-relative">
+                    <div class="carousel-caption-custom">
+                        <div>
+                            <h3>Inventory Management System</h3>
+                            <p>Welcome To Moral Group Of Companies</p>
+                        </div>
+                    </div>
+                    <div class="swiper" id="testimonial">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="login-assets/slider/img1.jpg" alt="Slide 1" class="img-fluid"/>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="login-assets/slider/img2.jpg" alt="Slide 2" class="img-fluid"/>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="login-assets/slider/img3.jpg" alt="Slide 3" class="img-fluid"/>
+                            </div>
+                             <div class="swiper-slide">
+                                <img src="login-assets/slider/img4.jpg" alt="Slide 3" class="img-fluid"/>
+                            </div>
+                             <div class="swiper-slide">
+                                <img src="login-assets/slider/img5.jpg" alt="Slide 3" class="img-fluid"/>
+                            </div>
+                             <div class="swiper-slide">
+                                <img src="login-assets/slider/img6.jpg" alt="Slide 3" class="img-fluid"/>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Login Form -->
+                <div class="col-md-6 form-col d-flex flex-column justify-content-center login shadow position-relative">
+                    <div class="mb-4">
+                        <span class="brand-head z-1 position-relative">
+                            <img src="login-assets/morallogo.png" height="60" class="me-2" alt="Logo" />Moral Inventory
+                        </span>
+                    </div>
+
+                    
+
+                    <!-- Username -->
+                    <div class="mb-3">
+                        <label class="form-label"><i class="bi bi-person-circle me-2"></i>Username</label>
+                        <input name="txtUserId" type="text" maxlength="30" id="txtUserId" tabindex="1" class="form-control input-glass" placeholder="Enter Username" />
+                        <input type="hidden" name="hfuid" id="hfuid" />
+                    </div>
+
+                    <!-- Password -->
+                    
+                    <div class="mb-3">
+                        <label class="form-label"><i class="bi bi-lock me-2"></i>Password</label>
+                        <input name="wtshdnet" type="hidden" id="wtshdnet" />
+                        <input name="wrongCount" type="hidden" id="wrongCount" value="0" />
+
+                        <!-- Manually add wrapper -->
+                        <div class="position-relative">
+                            <input name="txtPwd" type="password" maxlength="80" id="txtPwd" tabindex="2" class="form-control input-glass" placeholder="Enter Password" style="padding-right: 40px;" />
+                            <i class="bi bi-eye-slash" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); cursor: pointer; z-index: 10;"
+                                onclick="togglePassword(this)"></i>
+                        </div>
+                    </div>
+
+                    <!-- Confirm Password (Visible only when needed) -->
+                    
+
+                    <!-- Financial Year -->
+                    
+
+                    <!-- Captcha -->
+                    <div id="tblCatcha" class="mb-4">
+                        <label class="form-label"><i class="bi bi-shield-lock me-2"></i>Captcha</label>
+                        <p class="text-danger mb-1 small">Type the characters you see in the picture below.</p>
+                        <div class="d-md-flex align-items-center gap-3 mb-2">
+                            <div id="UpdatePanel2" class="d-flex align-items-center">
+	
+
+                                    <span class="captcha-box">
+                                        <img src="JpegImage1.aspx" id="chapthca" alt="Captcha" style="max-width: 180px; height: auto;" />
+
+                                    </span>
+                                    <input type="image" name="ImgBtnRefreshChapthca" id="ImgBtnRefreshChapthca" class="ms-2" src="images/Refresh.png" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ImgBtnRefreshChapthca&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" style="height:25px;width:25px;" />
+                                
+</div>
+                            <div class="flex-fill mt-md-0 mt-3">
+                                <input name="txtCaptcha" type="text" maxlength="6" id="txtCaptcha" tabindex="4" class="form-control input-glass" autocomplete="off" placeholder="Enter captcha" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Forget Password Link -->
+                    <div class="d-flex justify-content-end align-items-center mt-2 mb-4">
+                        <a id="lnkForPass" title="Sends Password To Your Mobile No." class="forget-link" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;lnkForPass&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">
+                            <i class="bi bi-question-circle me-1"></i>forget password?
+                        </a>
+                    </div>
+
+                    <!-- Sign In & Reset Buttons -->
+                    <div class="d-flex flex-column flex-sm-row gap-3 mt-3">
+                        <a onclick="return conversion(txtPwd,txtUserId);" id="btn_SignIn" class="btn btn-sign flex-fill" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;btn_SignIn&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))"><i class="bi bi-box-arrow-in-right me-2"></i>Sign in</a>
+                        <a id="btn_Reset" class="btn btn-reset flex-fill" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;btn_Reset&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, true))">
+                            <i class="bi bi-arrow-counterclockwise me-2"></i>Reset
+                        </a>
+                    </div>
+
+                    <!-- Modal Popup Extender -->
+                    
+                    
+                </div>
+            </div>
+        </div>
+    
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("CompareValidator2"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var CompareValidator2 = document.all ? document.all["CompareValidator2"] : document.getElementById("CompareValidator2");
+CompareValidator2.controltovalidate = "txtConfirmPass";
+CompareValidator2.errormessage = "Password Not Match!";
+CompareValidator2.evaluationfunction = "CompareValidatorEvaluateIsValid";
+CompareValidator2.controltocompare = "txtNewPassword";
+CompareValidator2.controlhookup = "txtNewPassword";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        (function() {var fn = function() {Sys.Extended.UI.ModalPopupBehavior.invokeViaServer('modalSearch', false); Sys.Application.remove_load(fn);};Sys.Application.add_load(fn);})();WebForm_AutoFocus('btn_SignIn');
+document.getElementById('CompareValidator2').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('CompareValidator2'));
+}
+//]]>
+</script>
+</form>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+    <!-- Custom Scripts -->
+    
+
+    <!-- Swiper Initialization -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var swiper = new Swiper("#testimonial", {
+                effect: "coverflow",
+                grabCursor: true,
+                autoHeight: true,
+                centeredSlides: true,
+                coverflowEffect: {
+                    rotate: 0,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 4,
+                    slideShadows: false
+                },
+                autoplay: {
+                    delay: 1500,
+                    disableOnInteraction: false
+                },
+                pagination: {
+                    el: ".swiper-pagination"
+                },
+                loop: true,
+                navigation: false,
+                keyboard: {
+                    enabled: true
+                },
+                mousewheel: {
+                    thresholdDelta: 70
+                },
+                breakpoints: {
+                    560: { slidesPerView: 1.5 },
+                    768: { slidesPerView: 2 },
+                    1024: { slidesPerView: 2 }
+                }
+            });
+        });
+    </script>
+
+    <!-- Password Conversion Script -->
+    <script language="javascript" type="text/javascript">
+        function conversion(txtPwd, txtUserId) {
+            if (txtPwd.value != "" && txtUserId.value != "") {
+                var chars = "0123456789abcdefghiklmnopqrstuvwxyz";
+                var string_length = 8;
+                var randomstring = '';
+                var randomstring1 = '';
+                var pass = '';
+
+                for (var i = 0; i < string_length; i++) {
+                    var rnum = Math.floor(Math.random() * chars.length);
+                    randomstring += chars.substring(rnum, rnum + 1);
+                }
+                for (var j = 0; j < string_length; j++) {
+                    var rnum1 = Math.floor(Math.random() * chars.length);
+                    randomstring1 += chars.substring(rnum1, rnum1 + 1);
+                }
+                for (var j = 0; j < 48; j++) {
+                    var rnum1 = Math.floor(Math.random() * chars.length);
+                    pass += chars.substring(rnum1, rnum1 + 1);
+                }
+
+                var pass1 = txtPwd.value;
+                //var passstring = MD5(pass1);
+                var passstring = hex_md5(pass1);
+                // txtPwd.value = pass;
+                var ssplhdnet = document.getElementById("wtshdnet");
+                ssplhdnet.value = randomstring + passstring + randomstring1;
+                //Converting uid ----------------
+                var uidstring = txtUserId.value;
+
+                var ssplhduid = document.getElementById("hfuid");
+                ssplhduid.value = randomstring + uidstring;
+                //hfuid.value = randomstring + uidstring;
+
+                return true;
+            }
+            else {
+                alert("Please enter Userid and Password")
+                return false;
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        function togglePassword(icon) {
+            var input = icon.previousElementSibling; // Gets the input before the icon
+            if (input.type === "password") {
+                input.type = "text";
+                icon.classList.remove("bi-eye-slash");
+                icon.classList.add("bi-eye");
+            } else {
+                input.type = "password";
+                icon.classList.remove("bi-eye");
+                icon.classList.add("bi-eye-slash");
+            }
+        }
+    </script>
+
+</body>
+</html>
