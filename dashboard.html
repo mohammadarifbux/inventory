@@ -27,6 +27,7 @@
 	<link rel="stylesheet" href="assets/css/dark-theme.css" />
 	<link rel="stylesheet" href="assets/css/semi-dark.css" />
 	<link rel="stylesheet" href="assets/css/header-colors.css" />
+	<link rel="stylesheet" href="assets/css/smartMenu.css" />
 	<title>Inventory</title>
 </head>
 
@@ -76,17 +77,42 @@
 								</div>
 							</div>  -->
 
-							<ul class="navbar-nav align-items-center gap-3 user-name">
-								<li>
+							<div class="d-flex">
+								<div class="user-box px-3">
+									<ul class="navbar-nav align-items-center gap-3 user-name">
+<li>
 									<p class="mb-0">Available Balance Cheque : <span class="text-success">#0.00</span>
 									</p>
 								</li>
-								<li>
+									</ul>
+								</div>
+								<div class="user-box px-3">
+									<ul class="navbar-nav align-items-center gap-3 user-name"><li>
+										<li>
 									<p class="mb-0">Available Balance Cash : <span class="text-success">#0.00</span></p>
 								</li>
-								<li>
+									</ul>
+								</div>
+								<div class="user-box px-3">
+									<ul class="navbar-nav align-items-center gap-3 user-name">
+<li>
 									<p class="mb-0">HO Pharma, LUCKNOW</p>
 								</li>
+									</ul>
+								</div>
+							</div>
+
+							<ul class="navbar-nav align-items-center gap-3 user-name d-none">
+								<!-- <li>
+									<p class="mb-0">Available Balance Cheque : <span class="text-success">#0.00</span>
+									</p>
+								</li> -->
+								<!-- <li>
+									<p class="mb-0">Available Balance Cash : <span class="text-success">#0.00</span></p>
+								</li> -->
+								<!-- <li>
+									<p class="mb-0">HO Pharma, LUCKNOW</p>
+								</li> -->
 								<!-- <li class="nav-item mobile-search-icon d-flex d-lg-none" data-bs-toggle="modal" data-bs-target="#SearchModal">
 								<a class="nav-link" href="avascript:;"><i class='bx bx-search'></i>
 								</a>
@@ -758,16 +784,12 @@
 								aria-label="Close"></button>
 						</div>
 						<div class="offcanvas-body">
-							<ul class="navbar-nav align-items-center flex-grow-1">
-								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;"
-										data-bs-toggle="dropdown">
-										<div class="parent-icon"><i class='bx bx-home-alt'></i>
-										</div>
+							<ul class="sm sm-clean" id="sidebarnav">
+								<li class="nav-item">
+									<a class="nav-link" href="javascript:;">
 										<div class="menu-title d-flex align-items-center">Master</div>
-										<div class="ms-auto dropy-icon"><i class='bx bx-chevron-down'></i></div>
 									</a>
-									 <ul id="usMenu_ul123" class="dropdown-menu">
+									 <ul id="usMenu_ul123" class="">
                                         <li id="usMenu_liA281">                                           
                                             <ul id="usMenu_ulA281" style="list-style: none; padding: 0;">
                                                 <li id="usMenu_liB286">
@@ -1853,13 +1875,19 @@
 	<script src="assets/js/index.js"></script>
 	<!--app JS-->
 	<script src="assets/js/app.js"></script>
+	<script src="assets/js/smartMenu.js"></script>
 
 
+	   <script>
+        $(function () {
+            $('#sidebarnav').smartmenus({
+                mainMenuSubOffsetX: -1,
+                mainMenuSubOffsetY: 4,
+                subMenusSubOffsetX: 6,
+                subMenusSubOffsetY: -6
+            });
+        });
+    </script>
 
 </body>
-
-<script>'undefined' === typeof _trfq || (window._trfq = []); 'undefined' === typeof _trfd && (window._trfd = []), _trfd.push({ 'tccl.baseHost': 'secureserver.net' }, { 'ap': 'cpsh-oh' }, { 'server': 'p3plzcpnl509132' }, { 'dcenter': 'p3' }, { 'cp_id': '10399385' }, { 'cp_cl': '8' }) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script>
-<script src='../../../../img1.wsimg.com/signals/js/clients/scc-c2/scc-c2.min.js'></script>
-<!-- Mirrored from codervent.com/Inventory/demo/horizontal/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 Apr 2026 06:32:43 GMT -->
-
 </html>
