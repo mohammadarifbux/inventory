@@ -1,15 +1,11 @@
 <!doctype html>
 <html lang="en">
-
-
-<!-- Mirrored from codervent.com/Inventory/demo/horizontal/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 Apr 2026 06:32:00 GMT -->
-
 <head>
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--favicon-->
-	<link rel="icon" href="assets/images/favicon-32x32.png" type="image/png" />
+	<link rel="shortcut icon" href="../assets/images/favicon.ico" />
 	<!--plugins-->
 	<link href="assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
 	<link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
@@ -28,7 +24,7 @@
 	<link rel="stylesheet" href="assets/css/semi-dark.css" />
 	<link rel="stylesheet" href="assets/css/header-colors.css" />
 	<link rel="stylesheet" href="assets/css/smartMenu.css" />
-	<title>Inventory</title>
+	<title>Moral Inventory</title>
 </head>
 
 <body>
@@ -77,7 +73,8 @@
 								</div>
 							</div>  -->
 
-							<div class="d-flex">
+							<div class="d-none d-md-block">
+								<div class="d-flex">
 								<div class="user-box px-3">
 									<ul class="navbar-nav align-items-center gap-3 user-name">
 										<li>
@@ -88,8 +85,7 @@
 									</ul>
 								</div>
 								<div class="user-box px-3">
-									<ul class="navbar-nav align-items-center gap-3 user-name">
-										<li>
+									<ul class="navbar-nav align-items-center gap-3 user-name">										
 										<li>
 											<p class="mb-0">Available Balance Cash : <span
 													class="text-success">#0.00</span></p>
@@ -103,6 +99,7 @@
 										</li>
 									</ul>
 								</div>
+							</div>
 							</div>
 
 							<ul class="navbar-nav align-items-center gap-3 user-name d-none">
@@ -747,6 +744,24 @@
 								</div>
 							</a>
 							<ul class="dropdown-menu dropdown-menu-end">
+									<div class="d-md-none d-md-block">
+										<li class="dropdown-item">
+											<p class="mb-0">Available Balance Cheque : <span
+													class="text-success">#0.00</span>
+											</p>
+										</li>
+										<div class="dropdown-divider mb-0"></div>
+										<li class="dropdown-item"> 
+											<p class="mb-0">Available Balance Cash : <span
+													class="text-success">#0.00</span></p>
+										</li>
+										<div class="dropdown-divider mb-0"></div>
+										<li class="dropdown-item">
+											<p class="mb-0">HO Pharma, LUCKNOW</p>
+										</li>
+										<div class="dropdown-divider mb-0"></div>
+									</div>
+							
 								<!-- <li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i class="bx bx-user fs-5"></i><span>Profile</span></a>
 							</li>
 							<li><a class="dropdown-item d-flex align-items-center" href="javascript:;"><i class="bx bx-cog fs-5"></i><span>Settings</span></a>
@@ -787,9 +802,6 @@
 						</div>
 						<div class="offcanvas-body">
 							<ul class="sm sm-clean" id="sidebarnav">
-
-
-
 								<li id="usMenu_li123"><a id="usMenu_HLink123">Master</a>
 									<ul id="usMenu_ul123">
 										<li id="usMenu_liA281"><a id="usMenu_HLinka1281">Dashboard</a>
